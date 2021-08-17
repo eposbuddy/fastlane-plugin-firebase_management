@@ -42,7 +42,7 @@ module Fastlane
 
 				UI.success "Successfuly saved config at #{path}"
 
-				return nil
+				return app_id
 			end
 
 			def self.description
