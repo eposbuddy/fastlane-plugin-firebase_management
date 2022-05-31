@@ -30,7 +30,7 @@ module Fastlane
 					Actions::FirebaseManagementDownloadConfigAction.run(
 						service_account_json_path: params[:service_account_json_path],
 						project_id: project_id,
-						app_id: app["appId"],
+						app_id: app_id,
 						type: type,
 						output_path: params[:output_path]
 					)
@@ -83,7 +83,7 @@ module Fastlane
 
 					FastlaneCore::ConfigItem.new(key: :sha_hash,
 											env_name: "FIREBASE_SHA_HASH",
-										 description: "Sha hash",
+										 description: "SHA hash",
 											optional: false),
 
 					FastlaneCore::ConfigItem.new(key: :download_config,
