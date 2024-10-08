@@ -75,7 +75,7 @@ module Fastlane
 				end
 
 				if apps.empty? then
-					UI.user_error! "Project has no #{type} apps"
+					UI.error! "Project has no #{type} apps"
 					return
 				end
 
@@ -84,6 +84,9 @@ module Fastlane
 				if app = apps.select {|a| a["appId"] == app_id }.first then
 					app
 				else
+					if apps.count == 1 then
+						return apps.first
+					end
 					options = apps.map { |a| "#{a["displayName"] || a["bundleId"] || a["packageName"]} (#{a["appId"]})" }
 					index = select_index("Select app:", options)
 					apps[index]
